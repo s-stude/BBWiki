@@ -1,23 +1,20 @@
 define(function (require) {
 
-    var $ = require('jQuery');
     var text = require('text');
     var urlDecoder = require('urlDecoder');
 
     return {
-        onSuccess: function (source) {
-            $('.js-app').html(source);
-        },
-
         onError: function (error) {
             alert(error.message);
             console.error(error);
         },
 
-        load: function (href) {
+        load: function (href, next) {
             var decodedUrl = urlDecoder.replaceUrlDelimiterToDefault(href);
-            console.log('try to load', decodedUrl);
-            text.get(decodedUrl, this.onSuccess, this.onError);
+
+            text.get(decodedUrl, function(source){
+                next(source);
+            }, this.onError);
         }
     };
 

@@ -30,12 +30,8 @@ require.config({
 
     packages: [
         {
-            name: 'index',
-            main: 'index'
-        },
-        {
-            name: 'loader',
-            main: 'loader'
+            name: 'skeleton',
+            main: 'skeleton'
         }
     ]
 });

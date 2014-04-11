@@ -4,17 +4,15 @@ define(function(require){
 
     var AppRouter = Backbone.Router.extend({
         routes: {
-            '': 'index',
-            '/:path': 'index',
-            'page/:path': 'loadPage'
+            '': 'page',
+            'index': 'page',
+            'page/:path': 'page'
         },
 
-        index: function(path){
-            require('index').show();
-        },
-
-        loadPage:function(path){
-            require('loader').load(path);
+        page: function(path){
+            require('skeleton').show({
+                href: path || '/docs/index.md'
+            });
         }
     });
 

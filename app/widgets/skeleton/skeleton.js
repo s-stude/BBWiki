@@ -3,6 +3,8 @@ define(function(require){
     var $ = require('jQuery');
     var IndexView = require('./index-view');
     var HeaderView = require('./header-view');
+    var md = require('md');
+    var loader = require('loader');
 
     return {
         show: function(o){
@@ -12,6 +14,11 @@ define(function(require){
             $('.js-page-header').html(headerView.render().el);
 
             $('.js-app').html(mainView.render().el);
+
+            loader.load(o.href, function(source){
+                console.log('Loading: ', o.href);
+                $('.js-app').html(md(source));
+            });
         }
     };
 
