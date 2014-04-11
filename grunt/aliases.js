@@ -32,7 +32,8 @@ module.exports = {
         'copy:release', // only after 'requirejs' task
         'cssmin:appcss',
         'cssmin:distcss',
-        'clean:rjsbuild'
+        'clean:rjsbuild',
+        'clean:csssbuild'
     ],
 
     'live-release': ['release', 'connect:alive'],

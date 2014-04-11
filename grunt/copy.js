@@ -1,4 +1,16 @@
 module.exports = {
+
+    basicdocs:{
+        files:[
+            {
+                expand:true,
+                cwd:'<%= vars.appdir %>/',
+                src:['docs/**'],
+                dest:'<%= vars.distroot %>/'
+            }
+        ]
+    },
+
     appjs:{
         files:[
             {

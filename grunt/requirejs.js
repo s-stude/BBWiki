@@ -4,7 +4,7 @@ module.exports = {
             optimizeCss: 'standard.keepLines',
             cssImportIgnore: null,
             cssIn: '<%= vars.appdir %>/css/<%= vars.distvendorcss %>',
-            out: '<%= vars.dist %>/css/<%= vars.distvendorcss %>'
+            out: '<%= vars.dist %>/css/build/<%= vars.distvendorcss %>'
 
         }
     },
