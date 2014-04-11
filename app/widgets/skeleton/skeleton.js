@@ -1,4 +1,4 @@
-define(function(require){
+define(function (require) {
 
     var $ = require('jQuery');
     var IndexView = require('./index-view');
@@ -6,18 +6,22 @@ define(function(require){
     var md = require('md');
     var loader = require('loader');
 
+    var mainView = new IndexView();
+    $('.js-app').html(mainView.el);
+
+    var headerView = new HeaderView();
+    $('.js-page-header').html(headerView.el);
+
     return {
-        show: function(o){
-            var mainView = new IndexView();
-            var headerView = new HeaderView();
+        show: function (o) {
 
-            $('.js-page-header').html(headerView.render().el);
+            var headerMdPath = '/docs/header.md';
+            loader.load(headerMdPath, function (source) {
+                headerView.render(md(source));
+            });
 
-            $('.js-app').html(mainView.render().el);
-
-            loader.load(o.href, function(source){
-                console.log('Loading: ', o.href);
-                $('.js-app').html(md(source));
+            loader.load(o.href, function (source) {
+                mainView.render(md(source));
             });
         }
     };
