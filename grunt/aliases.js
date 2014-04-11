@@ -2,7 +2,6 @@ module.exports = {
     default: [
 //        'clean:distroot',
         'jshint',
-        'copy:docsmd',
         'copy:appjs',
         'copy:vendorjs',
         'requirejs:appcss',
