@@ -1,7 +1,7 @@
 {
   "name": "BBWiki",
   "version": "0.0.1",
-  "description": "BBWiki",
+  "description": "Backbone based Markdown Wiki",
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
@@ -9,7 +9,7 @@
     "load-grunt-tasks": "~0.4.0",
     "load-grunt-config": "~0.8.0-beta.1",
     "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-concat": "~0.4.0",
     "grunt-contrib-connect": "~0.3.0",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-jshint": "~0.6.0",
@@ -18,9 +18,20 @@
     "grunt-contrib-clean": "~0.4.1",
     "grunt-contrib-requirejs": "^0.4.3"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/s-stude/BBWiki.git"
+  },
   "keywords": [
     "BBWiki"
   ],
-  "author": "s-stude"
+  "author": "Akim Khalilov",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-stude/BBWiki/issues"
+  },
+  "homepage": "https://github.com/s-stude/BBWiki"
 }
