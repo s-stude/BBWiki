@@ -72,7 +72,7 @@ module.exports = {
             },
             {
                 expand:true,
-                src:['vendor_libs/requirejs/require.js'],
+                src:['vendor_libs/require.js'],
                 dest:'<%= vars.distroot %>/'
             },
             {
