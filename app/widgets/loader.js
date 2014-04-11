@@ -10,9 +10,14 @@ define(function (require) {
         },
 
         load: function (href, next) {
-            var decodedUrl = urlDecoder.replaceUrlDelimiterToDefault(href);
 
-            text.get(decodedUrl, function(source){
+            if (window && window.wikiCfg && window.wikiCfg.wikiVirtualDir) {
+                href = window.wikiCfg.wikiVirtualDir + href;
+            }
+
+            var decodedUrl = urlDecoder.replaceUrlDelimiterToDefault(href);
+            console.log('Loading: ', decodedUrl);
+            text.get(decodedUrl, function (source) {
                 next(source);
             }, this.onError);
         }

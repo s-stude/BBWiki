@@ -22,7 +22,7 @@ define(function (require) {
             }
 
             var route = matches[1]; // #page
-            var path = matches[2]; // path/to/web/page.md
+            var path = '/' + matches[2]; // path/to/web/page.md
 
             var replacedPath = path.replace(options.defaultUrlDelimiterRegex, options.replacedUrlDelimiter);
 
