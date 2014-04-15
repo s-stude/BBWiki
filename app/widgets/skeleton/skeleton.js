@@ -3,8 +3,6 @@ define(function (require) {
     var $ = require('jQuery');
     var md = require('md');
 
-    var IndexView = require('./index-view');
-    var HeaderView = require('./header-view');
     var MarkdownView = require('./markdown-view');
 
     var loader = require('loader');
