@@ -38,7 +38,7 @@ define(function (require) {
             }
 
             if (options.urlPartRegex.test(href)) {
-                url = href.match(options.urlPartRegex)[0]
+                url = href.match(options.urlPartRegex)[0];
             }
 
             if (!route && !url) {
@@ -56,7 +56,7 @@ define(function (require) {
                 }
             };
         },
-        replaceUrlDelimiterToDefault: function (href) {
+        toRealDelimiters: function (href) {
             return href.replace(options.replacedUrlDelimiterRegex, options.defaultUrlDelimiter);
         }
     };

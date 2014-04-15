@@ -14,7 +14,6 @@ define(function(require){
         },
 
         page: function(path){
-            debugger;
             require('skeleton').show({
                 href: path || '/docs/index.md'
             });

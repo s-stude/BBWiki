@@ -19,7 +19,7 @@ define(function (require) {
 
             if (currentErrorDepth > maxErrorDepth) {
                 console.error(error);
-                cachedNext(notFoundText.replace('$URL$',urlDecoder.replaceUrlDelimiterToDefault(cachedHref)));
+                cachedNext(notFoundText.replace('$URL$',urlDecoder.toRealDelimiters(cachedHref)));
                 return;
             }
 
@@ -37,7 +37,7 @@ define(function (require) {
                 href = window.wikiCfg.wikiVirtualDir + href;
             }
 
-            var decodedUrl = urlDecoder.replaceUrlDelimiterToDefault(href);
+            var decodedUrl = urlDecoder.toRealDelimiters(href);
             console.log('Loading: ', decodedUrl);
 
             text.get(decodedUrl, function (source) {
