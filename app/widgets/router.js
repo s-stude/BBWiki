@@ -7,6 +7,7 @@ define(function(require){
             '': 'page',
 
             'index': 'page',
+            'index/:path': 'page',
 
             'page': 'page',
             'page/:path': 'page'

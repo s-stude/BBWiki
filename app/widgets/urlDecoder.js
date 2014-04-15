@@ -1,7 +1,7 @@
 define(function (require) {
 
     var options = {
-        defaultRoutePart: '#page/',
+        defaultRoutePart: '#page',
 
         defaultUrlDelimiter : '/',
         replacedUrlDelimiter: '>',
@@ -9,7 +9,7 @@ define(function (require) {
         defaultUrlDelimiterRegex : /\//g,
         replacedUrlDelimiterRegex: /->/g,
 
-        routePartRegex: /(#[A-z]+\/)/,
+        routePartRegex: /(#[A-z]+)/,
         urlPartRegex  : /\/.+/,
         urlIndexRegex : /^\/$/
     };
@@ -20,7 +20,18 @@ define(function (require) {
 
             var route, url;
 
-            href === '/' && (href = '#index/');
+            if(href === '/'){
+
+                return {
+                    routePart           : '#index',
+                    resourcePath        : '',
+                    resourcePathReplaced: '',
+                    fullPath: function(){
+                        return this.resourcePathReplaced ? this.routePart + options.defaultUrlDelimiter + this.resourcePathReplaced : this.routePart;
+                    }
+                };
+
+            }
 
             if (options.routePartRegex.test(href)) {
                 route = href.match(options.routePartRegex)[0];
@@ -39,7 +50,10 @@ define(function (require) {
             return {
                 routePart           : route || options.defaultRoutePart,
                 resourcePath        : url,
-                resourcePathReplaced: urlWithReplacedDelimiter
+                resourcePathReplaced: urlWithReplacedDelimiter,
+                fullPath: function(){
+                    return this.resourcePathReplaced ? this.routePart + options.defaultUrlDelimiter + this.resourcePathReplaced : this.routePart;
+                }
             };
         },
         replaceUrlDelimiterToDefault: function (href) {

@@ -4,7 +4,11 @@ define(function (require) {
     var navigator = require('navigator');
     var urlDecoder = require('urlDecoder');
 
-    var IndexView = Backbone.View.extend({
+    var View = Backbone.View.extend({
+
+        initialize: function(){
+            console.log('Initializing View');
+        },
 
         events: {
             'click a': 'navigate'
@@ -26,5 +30,5 @@ define(function (require) {
 
     });
 
-    return IndexView;
+    return View;
 });

@@ -1,1 +1,1 @@
-# [BBWiki production](/#index)
+# [BBWiki production](/)
