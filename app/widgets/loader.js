@@ -3,7 +3,14 @@ define(function (require) {
     var text = require('text');
     var urlDecoder = require('urlDecoder');
 
-    var cachedNext, _this, maxErrorDepth = 5, currentErrorDepth = 0;
+    var cachedNext,
+        cachedHref,
+        _this,
+        maxErrorDepth = 5,
+        currentErrorDepth = 0;
+
+    var notFoundText = '# Sorry, 404...\n ' +
+        'This page ($URL$) was not found. Please be careful with URLs. ([go to Index](/))';
 
     return {
         onError: function (error) {
@@ -11,7 +18,8 @@ define(function (require) {
             ++currentErrorDepth;
 
             if (currentErrorDepth > maxErrorDepth) {
-                alert(error);
+                console.error(error);
+                cachedNext(notFoundText.replace('$URL$',urlDecoder.replaceUrlDelimiterToDefault(cachedHref)));
                 return;
             }
 
@@ -23,6 +31,7 @@ define(function (require) {
 
             _this = this;
             cachedNext = next;
+            cachedHref = href;
 
             if (window && window.wikiCfg && window.wikiCfg.wikiVirtualDir) {
                 href = window.wikiCfg.wikiVirtualDir + href;
