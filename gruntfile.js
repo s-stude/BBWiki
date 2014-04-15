@@ -6,7 +6,8 @@ module.exports = function (grunt) {
                 appdir: 'app',
 
                 dist: 'wwwroot/sub/public',
-                distroot: 'wwwroot',
+                distroot: 'wwwroot/sub',
+                connectroot: 'wwwroot',
 
                 distjs: 'main.js',
 
