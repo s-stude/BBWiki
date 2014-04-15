@@ -7,7 +7,7 @@ define(function (require) {
         replacedUrlDelimiter: '>',
 
         defaultUrlDelimiterRegex : /\//g,
-        replacedUrlDelimiterRegex: /->/g,
+        replacedUrlDelimiterRegex: />/g,
 
         routePartRegex: /(#[A-z]+)/,
         urlPartRegex  : /\/.+/,
