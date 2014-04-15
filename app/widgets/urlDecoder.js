@@ -1,38 +1,48 @@
 define(function (require) {
 
-    var options= {
-        defaultUrlDelimiter :'/',
-        replacedUrlDelimiter: '->',
+    var options = {
+        defaultRoutePart: '#page/',
 
-        defaultUrlDelimiterRegex: /\//g,
-        replacedUrlDelimiterRegex: /->/g
+        defaultUrlDelimiter : '/',
+        replacedUrlDelimiter: '>',
+
+        defaultUrlDelimiterRegex : /\//g,
+        replacedUrlDelimiterRegex: /->/g,
+
+        routePartRegex: /(#[A-z]+\/)/,
+        urlPartRegex  : /\/.+/,
+        urlIndexRegex : /^\/$/
     };
 
     return {
 
+        toMatchedParts              : function (href) {
 
-        toMatchedParts: function (href) {
+            var route, url;
 
-            var linkRegexp = /(#[A-z]+\/)(.+)/;
+            href === '/' && (href = '#index/');
 
-            var matches = linkRegexp.exec(href);
-            if (matches.length < 3) {
-                alert('Wrong link: ' + href);
-                return false;
+            if (options.routePartRegex.test(href)) {
+                route = href.match(options.routePartRegex)[0];
             }
 
-            var route = matches[1]; // #page
-            var path = '/' + matches[2]; // path/to/web/page.md
+            if (options.urlPartRegex.test(href)) {
+                url = href.match(options.urlPartRegex)[0]
+            }
 
-            var replacedPath = path.replace(options.defaultUrlDelimiterRegex, options.replacedUrlDelimiter);
+            if (!route && !url) {
+                alert('Wrong url');
+            }
+
+            var urlWithReplacedDelimiter = url.replace(options.defaultUrlDelimiterRegex, options.replacedUrlDelimiter);
 
             return {
-                routePart           : route,
-                resourcePath        : path,
-                resourcePathReplaced: replacedPath
+                routePart           : route || options.defaultRoutePart,
+                resourcePath        : url,
+                resourcePathReplaced: urlWithReplacedDelimiter
             };
         },
-        replaceUrlDelimiterToDefault: function(href){
+        replaceUrlDelimiterToDefault: function (href) {
             return href.replace(options.replacedUrlDelimiterRegex, options.defaultUrlDelimiter);
         }
     };

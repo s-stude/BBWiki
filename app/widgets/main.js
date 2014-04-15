@@ -8,19 +8,19 @@ require.config({
 //        'hbs/json2'         : '../../vendor_libs/hbs/json2',
 //        'hbs'               : '../../vendor_libs/rjs-hbs',
 
-        'jQuery': '../../vendor_libs/jquery-min',
-        'text': '../../vendor_libs/rjs.text',
+        'jQuery'    : '../../vendor_libs/jquery-min',
+        'text'      : '../../vendor_libs/rjs.text',
         'underscore': '../../vendor_libs/underscore-min',
 
         'md': '../../vendor_libs/marked'
     },
 
     shim: {
-        'jQuery': {
+        'jQuery'    : {
             exports: '$'
         },
-        'Backbone': {
-            deps: ['jQuery', 'underscore'],
+        'Backbone'  : {
+            deps   : ['jQuery', 'underscore'],
             exports: 'Backbone'
         },
         'underscore': {
@@ -45,16 +45,24 @@ requirejs.onError = function (err) {
     throw err;
 };
 
-require(['Backbone', 'router', 'loader', 'urlDecoder'], function (Backbone, Router, loader, urlDecoder) {
+require(['Backbone', 'router', 'loader', 'urlDecoder', 'navigator'], function (Backbone, Router, loader, urlDecoder, navigator) {
 
-    $('.js-app').on('click', 'a', function (e) {
-        var href = $(this).attr('href');
-        var matchedParts = urlDecoder.toMatchedParts(href);
-        window.location = matchedParts.routePart + matchedParts.resourcePathReplaced;
 
-        return false;
-    });
+
+//    $('.js-app').on('click', 'a', function (e) {
+//        var href = $(this).attr('href');
+//        var matchedParts = urlDecoder.toMatchedParts(href);
+//
+//        navigator.go('page/', matchedParts.resourcePathReplaced);
+////
+////        var newPath = window.location.protocol + '//' + window.location.host + window.location.pathname + matchedParts.routePart + matchedParts.resourcePathReplaced;
+////        window.location = newPath;
+//
+//        return false;
+//    });
 
     window.Router = new Router();
+    navigator.init(window.Router);
+
     Backbone.history.start();
 });
