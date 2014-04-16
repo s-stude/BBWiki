@@ -4,32 +4,18 @@ define(function (require) {
     var urlDecoder = require('urlDecoder');
 
     var cachedNext,
-        cachedHref,
-        _this,
-        maxErrorDepth = 5,
-        currentErrorDepth = 0;
+        cachedHref;
 
-    var notFoundText = '# Sorry, 404...\n ' +
+    var source404 = '# Sorry, 404...\n ' +
         'This page ($URL$) was not found. Please be careful with URLs. ([go to Index](/))';
 
     return {
         onError: function (error) {
-
-            ++currentErrorDepth;
-
-            if (currentErrorDepth > maxErrorDepth) {
-                console.error(error);
-                cachedNext(notFoundText.replace('$URL$',urlDecoder.toRealDelimiters(cachedHref)));
-                return;
-            }
-
-            // TODO: Remove hardcoded val
-            _this.load('/docs/404.md', cachedNext);
+                cachedNext(source404.replace('$URL$',urlDecoder.toRealDelimiters(cachedHref)));
         },
 
         load: function (href, next) {
 
-            _this = this;
             cachedNext = next;
             cachedHref = href;
 
