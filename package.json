@@ -1,7 +1,7 @@
 {
-  "name": "BBWiki",
+  "name": "Markdown.Wiki",
   "version": "0.0.1",
-  "description": "Backbone based Markdown Wiki",
+  "description": "Markdown based Wiki engine (with Backbone under the hood)",
   "main": "index.html",
   "dependencies": {},
   "devDependencies": {
@@ -20,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/s-stude/BBWiki.git"
+    "url": "git://github.com/s-stude/Markdown.Wiki.git"
   },
   "keywords": [
-    "BBWiki"
+    "markdown", "wiki", "backbone"
   ],
   "author": "Akim Khalilov",
   "scripts": {
@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/s-stude/BBWiki/issues"
+    "url": "https://github.com/s-stude/Markdown.Wiki/issues"
   },
-  "homepage": "https://github.com/s-stude/BBWiki"
+  "homepage": "https://github.com/s-stude/Markdown.Wiki"
 }
