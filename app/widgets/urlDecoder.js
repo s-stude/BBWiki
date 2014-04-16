@@ -58,6 +58,14 @@ define(function (require) {
         },
         toRealDelimiters: function (href) {
             return href.replace(options.replacedUrlDelimiterRegex, options.defaultUrlDelimiter);
+        },
+        prependWithSubdomain: function(url){
+            var newUrl = url;
+            if (window && window.wikiCfg && window.wikiCfg.wikiVirtualDir) {
+                newUrl = window.wikiCfg.wikiVirtualDir + url;
+            }
+
+            return newUrl;
         }
     };
 

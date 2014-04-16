@@ -33,9 +33,7 @@ define(function (require) {
             cachedNext = next;
             cachedHref = href;
 
-            if (window && window.wikiCfg && window.wikiCfg.wikiVirtualDir) {
-                href = window.wikiCfg.wikiVirtualDir + href;
-            }
+            href = urlDecoder.prependWithSubdomain(href);
 
             var decodedUrl = urlDecoder.toRealDelimiters(href);
             console.log('Loading: ', decodedUrl);

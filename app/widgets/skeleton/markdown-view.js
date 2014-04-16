@@ -6,16 +6,20 @@ define(function (require) {
 
     var View = Backbone.View.extend({
 
-        initialize: function(){
-            console.log('Initializing View');
-        },
-
         events: {
             'click a': 'navigate'
         },
 
         render: function (source) {
+
             this.$el.html(source);
+
+            this.$('img').each(function () {
+                var $img = $(this);
+                var src = $img.attr('src');
+                $img.attr('src', urlDecoder.prependWithSubdomain(src));
+            });
+
             return this;
         },
 
