@@ -1,7 +1,6 @@
 define(function (require) {
 
     var Backbone = require('Backbone');
-    var navigator = require('navigator');
     var urlDecoder = require('urlDecoder');
 
     var View = Backbone.View.extend({

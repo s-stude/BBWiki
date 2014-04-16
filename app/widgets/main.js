@@ -45,24 +45,7 @@ requirejs.onError = function (err) {
     throw err;
 };
 
-require(['Backbone', 'router', 'loader', 'urlDecoder', 'navigator'], function (Backbone, Router, loader, urlDecoder, navigator) {
-
-
-
-//    $('.js-app').on('click', 'a', function (e) {
-//        var href = $(this).attr('href');
-//        var matchedParts = urlDecoder.toMatchedParts(href);
-//
-//        navigator.go('page/', matchedParts.resourcePathReplaced);
-////
-////        var newPath = window.location.protocol + '//' + window.location.host + window.location.pathname + matchedParts.routePart + matchedParts.resourcePathReplaced;
-////        window.location = newPath;
-//
-//        return false;
-//    });
-
+require(['Backbone', 'router'], function (Backbone, Router) {
     window.Router = new Router();
-    navigator.init(window.Router);
-
     Backbone.history.start();
 });
