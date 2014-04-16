@@ -1,6 +1,6 @@
 {
   "name": "Markdown.Wiki",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Markdown based Wiki engine (with Backbone under the hood)",
   "main": "index.html",
   "dependencies": {},
