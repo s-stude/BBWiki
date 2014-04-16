@@ -29,6 +29,7 @@ module.exports = {
     release: [
         'clean:distroot',
         'jshint',
+        'copy:basicdocs',
         'requirejs', // only before 'copy:release'
         'copy:release', // only after 'requirejs' task
         'cssmin:appcss',
