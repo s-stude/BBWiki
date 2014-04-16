@@ -1,6 +1,9 @@
-# This is index WIKI page
+# Hi! I'm `markdown`!
 
 Some text here...
 
-- [Ла ла ла ла](/docs/keep/this.md)
-- [dispatcher]()
+And list here:
+- First option
+- Second **bold** and _italic_...
+- [Some 404 url page](/docs/keep/this.md)
+- and more... ~~lol~~
