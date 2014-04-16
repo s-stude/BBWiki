@@ -1,4 +1,4 @@
-# Markdown.Wiki
+# Markdown-Wiki
 Markdown based Wiki engine (with Backbone under the hood)
 
 ## About
