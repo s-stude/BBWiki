@@ -35,7 +35,8 @@ module.exports = {
         'cssmin:appcss',
         'cssmin:distcss',
         'clean:rjsbuild',
-        'clean:csssbuild'
+        'clean:csssbuild',
+        'concat'
     ],
 
     'live-release': ['release', 'connect:alive'],
