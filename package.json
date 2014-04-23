@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/s-stude/Markdown-Wiki.git"
+    "url": "git://github.com/s-stude/md-wiki.git"
   },
   "keywords": [
     "markdown", "wiki", "backbone"
@@ -31,7 +31,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/s-stude/Markdown-Wiki/issues"
+    "url": "https://github.com/s-stude/md-wiki/issues"
   },
-  "homepage": "https://github.com/s-stude/Markdown-Wiki"
+  "homepage": "https://github.com/s-stude/md-wiki"
 }
